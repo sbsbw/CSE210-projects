@@ -9,7 +9,7 @@ class Program
         string answer = Console.ReadLine();
         float grade = float.Parse(answer);
         
-        // Create a series of if statements to tell user thier grade.
+        // Create a series of if statements to tell user their grade.
         string letter = "";
 
         if (grade >= 90)
