@@ -27,6 +27,7 @@ public class Activity
         Console.Clear();
         Console.WriteLine($"Welcome to the {_name}Activity.\r\n");
         Console.WriteLine(_description);
+        GetDuration();
     }
 
 
@@ -36,9 +37,9 @@ public class Activity
         _duration = int.Parse(Console.ReadLine());
     }
 
-    public void ShowCountdownTimer()
+    public void ShowCountdownTimer(int time)
     {
-        int seconds = _duration;
+        int seconds = time;
             while (seconds > 9)
             {
                 Console.Write(seconds);
@@ -56,7 +57,13 @@ public class Activity
 
                 seconds --;
             }
+    }
 
-            Console.WriteLine("\nDone.");
+    public void DisplayEndingMessage()
+    {
+        Console.Write("Well Done!!  ");
+        ShowCountdownTimer(5);
+        Console.WriteLine($"\r\n\r\nYou have completed another {_duration} seconds of the {_name}");
+        ShowCountdownTimer(5);
     }
 }

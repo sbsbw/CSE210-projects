@@ -3,7 +3,7 @@ using System;
 public class ReflectingActivity : Activity
 {
     // Create a list of questions.
-    private List<string> QUESTIONS = new List<string>()
+    private List<string> _questions = new List<string>()
     {
         "Think of a time when you stood up for someone else.",
         "Think of a time when you did something really difficult.",
@@ -12,7 +12,7 @@ public class ReflectingActivity : Activity
     };
 
     // Create a list of prompts.
-    private List<string> PROMPTS = new List<string>()
+    private List<string> _prompts = new List<string>()
     {"Why was this experience meaningful to you?",
     "Have you ever done anything like this before?",
     "How did you get started?",
@@ -38,7 +38,7 @@ public class ReflectingActivity : Activity
         // Get random number.
         Random rnd = new Random();
         int randomInt = rnd.Next(3);
-        return PROMPTS[randomInt];
+        return _prompts[randomInt];
     }
 
     public string GetRandomQuestion()
@@ -46,6 +46,6 @@ public class ReflectingActivity : Activity
         // Get random number.
         Random rnd = new Random();
         int randomInt = rnd.Next(8);
-        return PROMPTS[randomInt];
+        return _prompts[randomInt];
     }
 }
