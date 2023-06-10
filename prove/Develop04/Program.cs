@@ -12,6 +12,7 @@ class Program
             Menu mainMenu = new Menu();
             userChoice = mainMenu.DisplayMenu();
 
+            
 
             // Activity test = new Activity();
             // test.GetDuration();
