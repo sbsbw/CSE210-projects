@@ -28,11 +28,10 @@ public class ReflectingActivity : Activity
     public ReflectingActivity(int duration)
     {
         _name = "Reflecting Activity";
-        _duration = duration;
         _description = "This activity will help you reflect on times in your life when you have shown strength and resilience. This will help you recognize the power you have and how you can use it in other aspects of your life.";
     }
 
-    // Create methods for the ListActivity.
+    // Create methods for the Reflecting Activity.
     public string GetRandomPrompt()
     {
         // Get random number.
@@ -47,5 +46,29 @@ public class ReflectingActivity : Activity
         Random rnd = new Random();
         int randomInt = rnd.Next(8);
         return _prompts[randomInt];
+    }
+
+    public void Run()
+    {   
+        DisplayStartingMessage();
+        Console.Clear();
+        Console.Write("Get ready...  ");
+        ShowCountdownTimer(3);
+        Console.WriteLine("\r\n\r\nConsider the followingPrompt:\r\n");
+        Console.WriteLine($"--- {GetRandomPrompt()} ---\r\n");
+        Console.WriteLine("When you have something in mind, press enter to continue.");
+        Console.Read();
+        Console.WriteLine("\r\nNow Ponder on each of the following questions as they relate to this experience.");
+        Console.Write("You may begin in: ");
+        ShowCountdownTimer(6);
+        _remainingTime = _duration + (8 - (_duration % 8));
+        while (_remainingTime > 0)
+        {
+            Console.Clear();
+            Console.Write($"> {GetRandomQuestion()}  ");
+            ShowCountdownTimer(8);
+            _remainingTime = _remainingTime - 8;
+        }
+        DisplayEndingMessage();
     }
 }

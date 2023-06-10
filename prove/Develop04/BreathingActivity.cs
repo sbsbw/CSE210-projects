@@ -2,9 +2,6 @@ using System;
 
 public class BreathingAcivity : Activity
 {
-    // Make a attribute to track remaining seconds.
-    int _remainingTime;
-
     // Create the constructor for the breathing activity.
     public BreathingAcivity()
     {

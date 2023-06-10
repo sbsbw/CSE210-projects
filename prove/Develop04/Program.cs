@@ -9,6 +9,8 @@ class Program
 
         // Create an instance of every activity.
         BreathingAcivity BActivity = new BreathingAcivity();
+        ReflectingActivity RActivity = new ReflectingActivity();
+        
 
         while (userChoice != 0)
         {
@@ -20,10 +22,10 @@ class Program
             {
                 BActivity.Run();
             }
-
-            // Activity test = new Activity();
-            // test.GetDuration();
-            // test.ShowCountdownTimer();
+            else if (userChoice == 2)
+            {
+                RActivity.Run();
+            }
         }
     }
 }

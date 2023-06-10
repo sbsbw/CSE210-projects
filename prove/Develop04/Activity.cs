@@ -6,6 +6,7 @@ public class Activity
     protected string _name;
     protected int _duration;
     protected string _description;
+    protected int _remainingTime;
 
     // Make Class constructors:
     public Activity()
@@ -63,7 +64,7 @@ public class Activity
     {
         Console.Write("Well Done!!  ");
         ShowCountdownTimer(5);
-        Console.WriteLine($"\r\n\r\nYou have completed another {_duration} seconds of the {_name}");
+        Console.WriteLine($"\r\n\r\nYou have completed more than {_duration} seconds of the {_name}");
         ShowCountdownTimer(5);
     }
 }
