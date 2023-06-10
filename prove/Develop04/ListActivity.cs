@@ -34,10 +34,10 @@ public class ListAcivity : Activity
 
         public void Run()
     {   
+        _responses.Clear();
         DisplayStartingMessage();
         Console.Clear();
         Console.Write("Get ready...  ");
-        ShowCountdownTimer(3);
         Console.WriteLine("\r\n\r\nList as many responses you can to the following prompt:");
         Console.WriteLine($"--- {GetRandomPrompt()} ---\r\n");
         Console.WriteLine("When you are ready to start, press enter.");
@@ -45,16 +45,26 @@ public class ListAcivity : Activity
         DateTime _startingTime = DateTime.Now;
         DateTime _endingTime = _startingTime.AddSeconds(_duration);
         DateTime _currentTime = DateTime.Now;
+        TimeSpan _differenceInSeconds;
         Console.Clear();
         Console.WriteLine("You may begin in: ");
         
         while (_currentTime < _endingTime)
         {
             _currentTime = DateTime.Now;
-            Console.WriteLine($"\r\n There are {_currentTime - _startingTime} seconds left in the exersice.\r\n");
+            _differenceInSeconds = _currentTime - _startingTime;
+            _remainingTime = (_duration - (int) _differenceInSeconds.TotalSeconds);
+            Console.WriteLine($"\r\n There are {_remainingTime} seconds left in the exersice.\r\n");
             Console.Write("> ");
             _responses.Add(Console.ReadLine());
         }
+        Console.WriteLine("Here are your listed items:");
+        foreach (string response in _responses)
+        {
+            Console.WriteLine($"> {response}");
+        }
+        Console.WriteLine("When you are ready to continue, press enter.");
+        Console.ReadLine();
         DisplayEndingMessage();
     }
 }   
