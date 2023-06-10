@@ -14,6 +14,7 @@ public class Menu
             Console.WriteLine($" {option}");
         }
         Console.Write("Select a choice from the menu: ");
-        return int.Parse(Console.ReadLine());
+        int choice = int.Parse(Console.ReadLine());
+        return choice;
     }
 }

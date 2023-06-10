@@ -3,7 +3,7 @@ using System;
 public class ReflectingActivity : Activity
 {
     // Create a list of questions.
-    private List<string> _questions = new List<string>()
+    private List<string> _prompts = new List<string>()
     {
         "Think of a time when you stood up for someone else.",
         "Think of a time when you did something really difficult.",
@@ -12,7 +12,7 @@ public class ReflectingActivity : Activity
     };
 
     // Create a list of prompts.
-    private List<string> _prompts = new List<string>()
+    private List<string> _questions = new List<string>()
     {"Why was this experience meaningful to you?",
     "Have you ever done anything like this before?",
     "How did you get started?",
@@ -46,7 +46,7 @@ public class ReflectingActivity : Activity
         // Get random number.
         Random rnd = new Random();
         int randomInt = rnd.Next(8);
-        return _prompts[randomInt];
+        return _questions[randomInt];
     }
 
     public void Run()
@@ -55,10 +55,10 @@ public class ReflectingActivity : Activity
         Console.Clear();
         Console.Write("Get ready...  ");
         ShowCountdownTimer(3);
-        Console.WriteLine("\r\n\r\nConsider the followingPrompt:\r\n");
+        Console.WriteLine("\r\n\r\nConsider the following prompt:\r\n");
         Console.WriteLine($"--- {GetRandomPrompt()} ---\r\n");
         Console.WriteLine("When you have something in mind, press enter to continue.");
-        Console.Read();
+        Console.ReadLine();
         Console.WriteLine("\r\nNow Ponder on each of the following questions as they relate to this experience.");
         Console.Write("You may begin in: ");
         ShowCountdownTimer(6);
@@ -66,6 +66,7 @@ public class ReflectingActivity : Activity
         while (_remainingTime > 0)
         {
             Console.Clear();
+            Console.WriteLine($"\r\n There are {_remainingTime} seconds left in the exersice.\r\n");
             Console.Write($"> {GetRandomQuestion()}  ");
             ShowCountdownTimer(8);
             _remainingTime = _remainingTime - 8;
