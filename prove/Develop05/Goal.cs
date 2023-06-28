@@ -8,16 +8,6 @@ public class Goal
     protected int _points;
 
     // Write methods for your Goal.
-    public string GetName()
-    {
-        return _name;
-    }
-
-    public void SetName(string name)
-    {
-        _name = name;
-    }
-
     public virtual int Complete()
     {
         return _points;
@@ -71,13 +61,12 @@ public class Goal
         _name = Console.ReadLine();
         Console.Write("Write a short description of your Goal? ");
         _description = Console.ReadLine();
-        Console.Write("How many points do you get with this goal? ");
-        _points = int.Parse(Console.ReadLine());
+        _points = GetVaildInt("How many points do you get with this goal?", 100);
     }
 
     public virtual string ToSavedString()
     {
-        return $"{_name}|{_description}|{_points}";
+        return $"2|{_name}|{_description}|{_points}";
     }
 
     public virtual string ConvertToString()

@@ -13,9 +13,9 @@ public class EternalGoal : Goal
    public EternalGoal(string savedString)
    {
       string[] parts = savedString.Split("|");
-      _name = parts[0];
-      _description = parts[1];
-      _points = int.Parse(parts[2]);
+      _name = parts[1];
+      _description = parts[2];
+      _points = int.Parse(parts[3]);
    }
 
 }
