@@ -8,8 +8,6 @@ public class CompletableGoal : Goal
    // CompletableGoal Constructor.
    public CompletableGoal()
    {
-        SetGoalAttributes();
-        _isComplete = 0;
    }
 
    public CompletableGoal(string savedString)

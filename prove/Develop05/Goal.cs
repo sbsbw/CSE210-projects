@@ -43,7 +43,7 @@ public class Goal
 
     public Goal()
     {
-        SetGoalAttributes();
+        
     }
 
     public Goal(string savedString)
@@ -61,7 +61,7 @@ public class Goal
         _name = Console.ReadLine();
         Console.Write("Write a short description of your Goal? ");
         _description = Console.ReadLine();
-        _points = GetVaildInt("How many points do you get with this goal?", 100);
+        _points = GetVaildInt("How many points do you get with this goal? ", 100);
     }
 
     public virtual string ToSavedString()

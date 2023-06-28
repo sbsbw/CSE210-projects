@@ -12,6 +12,8 @@ class Program
         int goalNumber = 0;
         while (userChoice != 0)
         {
+            Console.WriteLine();
+            Console.WriteLine($"Your score is currently: {GD.GetXP()}");
             userChoice = M.DisplayMainMenu();
 
             if (userChoice == 1)

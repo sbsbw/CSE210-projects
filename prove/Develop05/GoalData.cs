@@ -4,8 +4,8 @@ public class GoalData
 {
     // Define attributes for class.
     private List<Goal> _goals = new List<Goal>();
-    private int _totalXP;
-    private Menu menu;
+    private int _totalXP = 0;
+    private Menu menu = new Menu();
     // Make methods for the class.
     public void AddGoal()
     {   
@@ -27,6 +27,10 @@ public class GoalData
         }
     }
 
+    public int GetXP()
+    {
+        return _totalXP;
+    }
     public void AddPoints(int points)
     {
         _totalXP = _totalXP + points;
@@ -34,8 +38,8 @@ public class GoalData
     
     public void CompleteGoal(int goalNumber)
     {
-        Goal tempGoal = _goals[goalNumber];
-        AddPoints(tempGoal.Complete());
+        // Goal tempGoal = _goals[goalNumber];
+        AddPoints(_goals[goalNumber - 1].Complete());
     }
 
     public void Load(string fileName)

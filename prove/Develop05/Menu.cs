@@ -8,7 +8,6 @@ public class Menu
 
     public int DisplayMainMenu()
     {   
-        Console.Clear();
         Console.WriteLine("Menu Options:");
         foreach (string option in mainMenuOptions)
         {
@@ -20,7 +19,6 @@ public class Menu
     }
     public int DisplayGoalMenu()
     {   
-        Console.Clear();
         Console.WriteLine("The types of goals are:");
         foreach (string option in goalMenuOptions)
         {

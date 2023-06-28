@@ -22,7 +22,7 @@ public class ChecklistGoal : CompletableGoal
         _isComplete = int.Parse(parts[4]);
         _bonus = int.Parse(parts[5]);
         _numberToComplete = int.Parse(parts[6]);
-        _timesCompleted = int.Parse(parts[6]);
+        _timesCompleted = int.Parse(parts[7]);
     }
 
     // Overide previous Methods from parent class.
@@ -113,10 +113,10 @@ public class ChecklistGoal : CompletableGoal
         _name = Console.ReadLine();
         Console.Write("Write a short description of your Goal? ");
         _description = Console.ReadLine();
-        _points = GetVaildInt("How many points do you get with this goal?", 100);
-        Console.WriteLine("How many times does this goal need to be accomplished for a bonus? ");
+        _points = GetVaildInt("How many points do you get with this goal? (<100) ", 100);
+        Console.Write("How many times does this goal need to be accomplished for a bonus? ");
         _numberToComplete = int.Parse(Console.ReadLine());
-        _bonus = GetVaildInt("What is the bonus for accomplishing it that number of times?", 100);        
+        _bonus = GetVaildInt("What is the bonus for accomplishing it that number of times?  (<200) ", 200);        
         _timesCompleted = 0;
         _isComplete = 0;
     }
