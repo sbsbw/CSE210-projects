@@ -20,41 +20,68 @@ public class Goal
 
     public virtual int Complete()
     {
-        return 0;
+        return _points;
     }
 
-    public int GetVaildInt(string prompt)
+    public int GetVaildInt(string prompt, int upperBound)
     {
+        int number = -1;
+        int finished = 0;
+        while (finished == 0)
+        {   
+            Console.WriteLine();
+            Console.Write(prompt);
+            try
+            {
+            number = int.Parse(Console.ReadLine());
+            if ((number > 0) || (number <= upperBound))
+            {
+                return number;
+            }
+            else
+            {
+                Console.WriteLine("This is not a valid input, Please Try again");
+            }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e.Message);
+            }
+        }
         return 0;
     }
 
     public Goal()
     {
-        _name = "Unnamed Goal";
-        _description = "No Description";
-        _points = 0;
+        SetGoalAttributes();
     }
 
     public Goal(string savedString)
     {
-        _name = "Unnamed Goal";
-        _description = savedString;
-        _points = 0;
+        string[] parts = savedString.Split("|");
+        _name = parts[0];
+        _description = parts[1];
+        _points = int.Parse(parts[2]);
     }
 
     public virtual void SetGoalAttributes()
     {
-
+        Console.Clear();
+        Console.Write("What is the name of your Goal? ");
+        _name = Console.ReadLine();
+        Console.Write("Write a short description of your Goal? ");
+        _description = Console.ReadLine();
+        Console.Write("How many points do you get with this goal? ");
+        _points = int.Parse(Console.ReadLine());
     }
 
     public virtual string ToSavedString()
     {
-        return "";
+        return $"{_name}|{_description}|{_points}";
     }
 
     public virtual string ConvertToString()
     {
-        return "";
-
+        return $"[ ] {_name} ({_description}) worth {_points} points.";
     }
 }
