@@ -6,7 +6,7 @@ public class Expense : Data
     protected bool _paid;
     public Expense()
     {
-        
+        SetAttributes();
     }
     public Expense(string savedString)
     {
@@ -14,6 +14,13 @@ public class Expense : Data
     }
     public override void SetAttributes()
     {
+        Console.Clear();
+        Console.Write("Please describe the reason for the expense: ");
+        _description = Console.ReadLine();
+        Console.Write("How much money did you pay? ");
+        _amount = float.Parse(Console.ReadLine()) * -1;
+        _dueDate = DateTime.Now;
+        _paid = true;
 
     }
     public override string StringToSave()
@@ -27,7 +34,7 @@ public class Expense : Data
     public float PayExpense()
     {
         _paid = true;
-        return _amount * -1;
+        return _amount;
     }
         public DateTime GetDueDate()
     {

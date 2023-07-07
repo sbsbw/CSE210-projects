@@ -2,8 +2,8 @@ using System;
 
 public class FlexibleExpense : Expense
 {
-    private float _upperLimit;
-    private float _lowerLimit;
+    // private float _upperLimit;
+    // private float _lowerLimit;
     public FlexibleExpense()
     {
         

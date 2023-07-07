@@ -2,7 +2,7 @@ using System;
 
 public class ConsistantExpense : Expense
 {
-    private int _frequency;
+    // private int _frequency;
     public ConsistantExpense()
     {
         
