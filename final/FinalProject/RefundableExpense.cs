@@ -1,6 +1,6 @@
 using System;
 
-public class RefundableExpense : Data
+public class RefundableExpense : Expense
 {
     public RefundableExpense()
     {
@@ -14,14 +14,6 @@ public class RefundableExpense : Data
     {
 
     }
-    public float GetAmount()
-    {
-        return _amount;
-    }
-    public DateTime GetDueDate()
-    {
-        return _dueDate;
-    }
     public override string StringToSave()
     {
         return "";
@@ -29,10 +21,5 @@ public class RefundableExpense : Data
     public override string ShowInfo()
     {
         return "";
-    }
-    public float PayExpense()
-    {
-        _paid = true;
-        return _amount * -1;
     }
 }

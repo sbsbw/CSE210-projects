@@ -14,10 +14,6 @@ public class Wages : Income
     {
 
     }
-    public override float GetAmount()
-    {
-        return _amount;
-    }
     public override string StringToSave()
     {
         return "";

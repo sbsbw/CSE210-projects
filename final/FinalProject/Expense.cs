@@ -29,4 +29,8 @@ public class Expense : Data
         _paid = true;
         return _amount * -1;
     }
+        public DateTime GetDueDate()
+    {
+        return _dueDate;
+    }
 }
