@@ -2,22 +2,15 @@ using System;
 
 public class Data
 {
+    public int _dataType;
     protected string _description;
     protected float _amount;
 
-    public Data()
-    {
-        
-    }
-    public Data(string savedString)
-    {
-
-    }
     public virtual void SetAttributes()
     {
 
     }
-    public float GetAmount()
+    public virtual float GetAmount()
     {
         return _amount;
     }

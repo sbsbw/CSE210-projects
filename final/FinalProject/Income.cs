@@ -8,7 +8,10 @@ public class Income : Data
     }
     public Income(string savedString)
     {
-
+        string[] parts = savedString.Split("|");
+        _dataType = int.Parse(parts[0]);
+        _amount = float.Parse(parts[1]);
+        _description = parts[2];
     }
     public override void SetAttributes()
     {
@@ -20,10 +23,10 @@ public class Income : Data
     }
     public override string StringToSave()
     {
-        return "";
+        return $"0|{_amount}|{_description}";
     }
     public override string ShowInfo()
     {
-        return "";
+        return $"+ ${_amount} ({_description})";
     }
 }

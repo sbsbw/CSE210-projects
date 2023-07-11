@@ -3,7 +3,11 @@ using System;
 public class Budget
 {
     // Define attributes for class.
-    private List<Data> _datas = new List<Data>();
+    public List<Data> _datas = new List<Data>();
+    // private List<RefundableExpense> _refundableExpenses = new List<RefundableExpense>();
+    // private List<Expense> _expenses = new List<Expense>();
+    // private List<Income> _incomes = new List<Income>();
+
     private float _balance = 0;
     private Menu menu = new Menu();
     
@@ -38,12 +42,18 @@ public class Budget
     {
         _balance = _balance + amount;
     }
-    
-    // public void CompleteGoal(int goalNumber)
-    // {
-    //     // Goal tempGoal = _goals[goalNumber];
-    //     AddPoints(_goals[goalNumber - 1].Complete());
-    // }
+    public void RefundExpense(int dataNumber)
+    {
+        // if (_refundableExpenses[dataNumber]._dataType == 4)
+        if (_datas[dataNumber]._dataType == 4)
+        {
+            AddFunds(_datas[dataNumber].GetAmount());
+        }
+        else
+        {
+            Console.WriteLine("Sorry, this is not refundable.");
+        }
+    }
 
     // public void Load(string fileName)
     // {
@@ -99,15 +109,57 @@ public class Budget
     //     }
     // }
 
-    // public void ShowGoals()
-    // {   
-    //     Console.Clear();
-    //     Console.WriteLine("The goals are:");
-    //     int i = 1;
-    //     foreach (Goal goal in _goals)
-    //     {
-    //         Console.WriteLine($" {i}. {goal.ConvertToString()}");
-    //         i++;
-    //     }
-    // }
+    public void ShowRefundableList()
+    {   
+        Console.Clear();
+        Console.WriteLine("Refundable Expenses:");
+        int i = 1;
+        foreach (Data data in _datas)
+        {
+            if (data._dataType == 4)
+            {
+                Console.WriteLine($" {i}. {data.ShowInfo()}");
+            }
+            i++;
+        }
+    }
+    public void ShowExpensesList()
+    {   
+        Console.Clear();
+        Console.WriteLine("Expenses:");
+        int i = 1;
+        foreach (Data data in _datas)
+        {
+            if (data._dataType == 3 || data._dataType == 4 || data._dataType == 5)
+            {
+                Console.WriteLine($" {i}. {data.ShowInfo()}");
+            }
+            i++;
+        }
+    }
+    public void ShowIncomesList()
+    {   
+        Console.Clear();
+        Console.WriteLine("Incomes:");
+        int i = 1;
+        foreach (Data data in _datas)
+        {
+            if (data._dataType == 1 || data._dataType == 2)
+            {
+                Console.WriteLine($" {i}. {data.ShowInfo()}");
+            }
+            i++;    
+        }
+    }
+    public void ShowFullList()
+    {   
+        Console.Clear();
+        Console.WriteLine("Transations:");
+        int i = 1;
+        foreach (Data data in _datas)
+        {
+            Console.WriteLine($" {i}. {data.ShowInfo()}");
+            i++;
+        }
+    }
 }
