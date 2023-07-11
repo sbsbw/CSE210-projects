@@ -27,6 +27,7 @@ public class Expense : Data
     public override void SetAttributes()
     {
         Console.Clear();
+        _dataType = 3;
         Console.Write("Please describe the reason for the expense: ");
         _description = Console.ReadLine();
         Console.Write("How much money did you pay? ");
@@ -36,7 +37,7 @@ public class Expense : Data
     }
     public override string StringToSave()
     {
-        return $"2|{_amount}|{_description}|{_dueDate}|{_paid}";
+        return $"3|{_amount}|{_description}|{_dueDate}|{_paid}";
     }
     public override string ShowInfo()
     {

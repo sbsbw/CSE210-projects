@@ -5,7 +5,7 @@ public class ConsistantExpense : Expense
     private int _frequency;
     public ConsistantExpense()
     {
-        SetAttributes();
+        
     }
     public ConsistantExpense(string savedString)
     {
@@ -19,6 +19,7 @@ public class ConsistantExpense : Expense
     public override void SetAttributes()
     {
         Console.Clear();
+        _dataType = 4;
         Console.Write("Please describe the reason for the expense: ");
         _description = Console.ReadLine();
         Console.Write("How much money did you pay? ");
@@ -30,7 +31,7 @@ public class ConsistantExpense : Expense
     }
     public override string StringToSave()
     {
-        return $"3|{_amount}|{_description}|{_dueDate}|{_paid}|{_frequency}";
+        return $"4|{_amount}|{_description}|{_dueDate}|{_paid}|{_frequency}";
     }
     public override string ShowInfo()
     {

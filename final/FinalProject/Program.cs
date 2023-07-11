@@ -23,7 +23,7 @@ class Program
             else if (userChoice == 2)
             {
                 Console.WriteLine();
-                Console.WriteLine($"Your current balance is: ${B.GetBalance()}");
+                Console.WriteLine($"Your current balance is: ${B.GetBalance().ToString("n2")}");
             }
             else if (userChoice == 3)
             {
@@ -50,24 +50,39 @@ class Program
                 {
                     B.AddFunds(B._datas[tempExpense].GetAmount());
                 }
+                else
+                {
+                    Console.WriteLine();
+                    Console.WriteLine("Sorry, that was not a valid index.");
+                }
+            }
+            else if (userChoice == 7)
+            {
+                Console.WriteLine();
+                B.ShowRefundableList();
+                Console.Write($"\r\n Choose an expense to refund: ");
+                int tempExpense = int.Parse(Console.ReadLine()) - 1;
+                if (B._datas[tempExpense]._dataType == 5)
+                {
+                    B.AddFunds(B._datas[tempExpense].GetAmount());
+                }
+            }
+            else if (userChoice == 8)
+            {
+                Console.Write("Please type a file name: ");
+                string fileName = Console.ReadLine();
+                B.Save(fileName);
+            }
+            else if (userChoice == 9)
+            {
+                Console.Write("Please type a file name: ");
+                string fileName = Console.ReadLine();
+                B.Load(fileName);
             }
             else if (userChoice == 0)
             {
                 Console.WriteLine("\r\nThank you for using the Budget program.");
             }
-                // Console.Write("Please type a file name: ");
-                // string fileName = Console.ReadLine();
-                // GD.Save(fileName);
-
-                // Console.Write("Please type a file name: ");
-                // string fileName = Console.ReadLine();
-                // GD.Load(fileName);
-
-                // GD.ShowGoals();
-                // Console.Write("Which goal did you accomplish? ");
-                // goalNumber = int.Parse(Console.ReadLine());
-                // GD.CompleteGoal(goalNumber);
-
         }
     }
 }

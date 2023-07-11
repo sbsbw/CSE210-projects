@@ -6,7 +6,7 @@ public class Wages : Income
     private float _hours;
     public Wages()
     {
-        SetAttributes();
+
     }
     public Wages(string savedString)
     {
@@ -20,6 +20,7 @@ public class Wages : Income
     public override void SetAttributes()
     {
         Console.Clear();
+        _dataType = 2;
         Console.Write("Please type the description of work done: ");
         _description = Console.ReadLine();
         Console.Write("How much do you get paid per hour? ");
@@ -30,7 +31,7 @@ public class Wages : Income
     }
     public override string StringToSave()
     {
-        return $"1|{_amount}|{_description}|{_hours}|{_rate}";
+        return $"2|{_amount}|{_description}|{_hours}|{_rate}";
     }
     public override string ShowInfo()
     {

@@ -4,9 +4,6 @@ public class Budget
 {
     // Define attributes for class.
     public List<Data> _datas = new List<Data>();
-    // private List<RefundableExpense> _refundableExpenses = new List<RefundableExpense>();
-    // private List<Expense> _expenses = new List<Expense>();
-    // private List<Income> _incomes = new List<Income>();
 
     private float _balance = 0;
     private Menu menu = new Menu();
@@ -17,20 +14,30 @@ public class Budget
         int userChoice = menu.DisplayincomeOrExpenseMenu();
         if (userChoice == 1)
         {
-            Income income = new Income();
-            _datas.Add(income);
-            AddFunds(income.GetAmount());
+            Income data = new Income();
+            _datas.Add(data);
+            AddFunds(data.GetAmount());
         }
-        // else if (userChoice == 2)
-        // {
-        //     Wages wage = new Wage();
-        //     _datas.Add(income);
-        // }
+        else if (userChoice == 2)
+        {
+            Wages data = new Wages();
+            _datas.Add(data);
+            AddFunds(data.GetAmount());
+        }
         else if (userChoice == 3)
         {
-            Expense expense = new Expense();
-            _datas.Add(expense);
-            AddFunds(expense.GetAmount());
+            Expense data = new Expense();
+            _datas.Add(data);
+        }
+        else if (userChoice == 4)
+        {
+            ConsistantExpense data = new ConsistantExpense();
+            _datas.Add(data);
+        }
+        else if (userChoice == 5)
+        {
+            RefundableExpense data = new RefundableExpense();
+            _datas.Add(data);
         }
     }
 
@@ -55,59 +62,69 @@ public class Budget
         }
     }
 
-    // public void Load(string fileName)
-    // {
-    //     try
-    //     {
-    //         string[] lines = System.IO.File.ReadAllLines(fileName);
-    //         _goals.Clear();
-    //         _totalXP = 0;
-    //         int i = 0;
-    //         foreach (string line in lines)
-    //         {
-    //             if (i == 0)
-    //             {   
-    //                 _totalXP = int.Parse(line);
-    //                 i++;
-    //             }
-    //             else
-    //             {
-    //                 string[] parts = line.Split("|");
-    //                 if (int.Parse(parts[0]) == 1)
-    //                 {
-    //                 SimpleGoal goal = new SimpleGoal(line);
-    //                 _goals.Add(goal);
-    //                 }
-    //                 else if (int.Parse(parts[0]) == 2)
-    //                 {
-    //                 EternalGoal goal = new EternalGoal(line);
-    //                 _goals.Add(goal);
-    //                 }
-    //                 else if (int.Parse(parts[0]) == 3)
-    //                 {
-    //                 ChecklistGoal goal = new ChecklistGoal(line);
-    //                 _goals.Add(goal);
-    //                 }
-    //             }
-    //         }
-    //     }
-    //     catch
-    //     {
-    //         Console.WriteLine("We could not find this file.");
-    //     }
+    public void Load(string fileName)
+    {
+        try
+        {
+            string[] lines = System.IO.File.ReadAllLines(fileName);
+            _datas.Clear();
+            _balance = 0;
+            int i = 0;
+            foreach (string line in lines)
+            {
+                if (i == 0)
+                {   
+                    _balance = float.Parse(line);
+                    i++;
+                }
+                else
+                {
+                    string[] parts = line.Split("|");
+                    if (int.Parse(parts[0]) == 1)
+                    {
+                    Income data = new Income(line);
+                    _datas.Add(data);
+                    }
+                    else if (int.Parse(parts[0]) == 2)
+                    {
+                    Wages data = new Wages(line);
+                    _datas.Add(data);
+                    }
+                    else if (int.Parse(parts[0]) == 3)
+                    {
+                    Expense data = new Expense(line);
+                    _datas.Add(data);
+                    }
+                    else if (int.Parse(parts[0]) == 4)
+                    {
+                    ConsistantExpense data = new ConsistantExpense(line);
+                    _datas.Add(data);
+                    }
+                    else if (int.Parse(parts[0]) == 5)
+                    {
+                    RefundableExpense data = new RefundableExpense(line);
+                    _datas.Add(data);
+                    }
+                }
+            }
+        }
+        catch
+        {
+            Console.WriteLine("We could not find this file.");
+        }
+    }
 
-    // }
-    // public void Save(string fileName)
-    // {
-    //     using (StreamWriter outputFile = new StreamWriter(fileName))
-    //     {
-    //         outputFile.WriteLine($"{_totalXP}");
-    //         foreach (Goal goal in _goals)
-    //         {
-    //             outputFile.WriteLine(goal.ToSavedString());
-    //         }
-    //     }
-    // }
+    public void Save(string fileName)
+    {
+        using (StreamWriter outputFile = new StreamWriter(fileName))
+        {
+            outputFile.WriteLine($"{_balance}");
+            foreach (Data data in _datas)
+            {
+                outputFile.WriteLine(data.StringToSave());
+            }
+        }
+    }
 
     public void ShowRefundableList()
     {   

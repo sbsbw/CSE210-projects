@@ -16,6 +16,7 @@ public class Income : Data
     public override void SetAttributes()
     {
         Console.Clear();
+        _dataType = 1;
         Console.Write("Please describe the source of the income: ");
         _description = Console.ReadLine();
         Console.Write("How much money did you gain? ");
@@ -23,7 +24,7 @@ public class Income : Data
     }
     public override string StringToSave()
     {
-        return $"0|{_amount}|{_description}";
+        return $"1|{_amount}|{_description}";
     }
     public override string ShowInfo()
     {

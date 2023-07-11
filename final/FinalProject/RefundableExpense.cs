@@ -5,7 +5,7 @@ public class RefundableExpense : Expense
     bool _refunded;
     public RefundableExpense()
     {
-        SetAttributes();
+        
     }
     public RefundableExpense(string savedString)
     {
@@ -34,6 +34,7 @@ public class RefundableExpense : Expense
     public override void SetAttributes()
     {
         Console.Clear();
+        _dataType = 5;
         Console.Write("Please describe the reason for the expense: ");
         _description = Console.ReadLine();
         Console.Write("How much money did you pay? ");
@@ -44,7 +45,7 @@ public class RefundableExpense : Expense
     }
     public override string StringToSave()
     {
-        return $"4|{_amount}|{_description}|{_dueDate}|{_paid}";
+        return $"5|{_amount}|{_description}|{_dueDate}|{_paid}";
     }
     public override string ShowInfo()
     {
