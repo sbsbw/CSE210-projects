@@ -15,28 +15,33 @@ public class Budget
         if (userChoice == 1)
         {
             Income data = new Income();
+            data.SetAttributes();
             _datas.Add(data);
             AddFunds(data.GetAmount());
         }
         else if (userChoice == 2)
         {
             Wages data = new Wages();
+            data.SetAttributes();
             _datas.Add(data);
             AddFunds(data.GetAmount());
         }
         else if (userChoice == 3)
         {
             Expense data = new Expense();
+            data.SetAttributes();
             _datas.Add(data);
         }
         else if (userChoice == 4)
         {
             ConsistantExpense data = new ConsistantExpense();
+            data.SetAttributes();
             _datas.Add(data);
         }
         else if (userChoice == 5)
         {
             RefundableExpense data = new RefundableExpense();
+            data.SetAttributes();
             _datas.Add(data);
         }
     }

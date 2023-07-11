@@ -4,7 +4,7 @@ public class Income : Data
 {
     public Income()
     {
-        SetAttributes();
+        
     }
     public Income(string savedString)
     {
