@@ -1,14 +1,12 @@
 using System;
 
-public class Expense : Data
+public class SimpleExpense : Expense
 {
-    protected string _dueDate;
-    protected bool _paid;
-    public Expense()
+    public SimpleExpense()
     {
-        
+        SetAttributes();
     }
-    public Expense(string savedString)
+    public SimpleExpense(string savedString)
     {
         string[] parts = savedString.Split("|");
         _dataType = int.Parse(parts[0]);

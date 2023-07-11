@@ -61,6 +61,20 @@ public class Budget
             Console.WriteLine("Sorry, this is not refundable.");
         }
     }
+    public void PayExpense()
+    {
+        Console.Write($"\r\n Choose an expense to pay: ");
+        int tempExpense = int.Parse(Console.ReadLine()) - 1;
+        if (_datas[tempExpense]._dataType == 3 || _datas[tempExpense]._dataType == 4 || _datas[tempExpense]._dataType == 5)
+        {
+            AddFunds(_datas[tempExpense].GetAmount());
+        }
+        else
+        {
+            Console.WriteLine();
+            Console.WriteLine("Sorry, that was not a valid index.");
+        }
+    }
 
     public void Load(string fileName)
     {

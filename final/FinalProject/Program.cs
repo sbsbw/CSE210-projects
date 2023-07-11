@@ -44,17 +44,7 @@ class Program
             {
                 Console.WriteLine();
                 B.ShowExpensesList();
-                Console.Write($"\r\n Choose an expense to pay: ");
-                int tempExpense = int.Parse(Console.ReadLine()) - 1;
-                if (B._datas[tempExpense]._dataType == 3 || B._datas[tempExpense]._dataType == 4 || B._datas[tempExpense]._dataType == 5)
-                {
-                    B.AddFunds(B._datas[tempExpense].GetAmount());
-                }
-                else
-                {
-                    Console.WriteLine();
-                    Console.WriteLine("Sorry, that was not a valid index.");
-                }
+                B.PayExpense();
             }
             else if (userChoice == 7)
             {
