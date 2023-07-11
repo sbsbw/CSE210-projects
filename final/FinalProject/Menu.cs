@@ -16,7 +16,15 @@ public class Menu
             Console.WriteLine($" {option}");
         }
         Console.Write("Select a choice from the menu: ");
-        int choice = int.Parse(Console.ReadLine());
+        int choice = 10;
+        try
+        {
+            choice = int.Parse(Console.ReadLine());
+        }
+        catch
+        {
+            Console.WriteLine("This was not a valid input.");
+        }
         return choice;
     }
     // public int DisplaySaveOrLoadMenu()

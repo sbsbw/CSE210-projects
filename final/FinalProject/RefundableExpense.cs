@@ -37,7 +37,7 @@ public class RefundableExpense : Expense
         _dataType = 5;
         Console.Write("Please describe the reason for the expense: ");
         _description = Console.ReadLine();
-        Console.Write("How much money did you pay? ");
+        Console.Write("How much money will you pay? ");
         _amount = float.Parse(Console.ReadLine()) * -1;
         _dueDate = DateTime.Today.ToString();
         _paid = false;
@@ -45,11 +45,11 @@ public class RefundableExpense : Expense
     }
     public override string StringToSave()
     {
-        return $"5|{_amount}|{_description}|{_dueDate}|{_paid}";
+        return $"5|{_amount}|{_description}|{_dueDate}|{_paid}|{_refunded}";
     }
     public override string ShowInfo()
     {
-        return $"- ${_amount} ({_description} === Due on: {_dueDate} === Paid: {_paid})";
+        return $" ${_amount} ({_description} === Due on: {_dueDate} === Paid: {_paid} === Refunded: {_refunded})";
     }
     public override float GetAmount()
     {

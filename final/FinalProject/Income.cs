@@ -4,7 +4,7 @@ public class Income : Data
 {
     public Income()
     {
-        
+
     }
     public Income(string savedString)
     {
@@ -28,6 +28,6 @@ public class Income : Data
     }
     public override string ShowInfo()
     {
-        return $"+ ${_amount} ({_description})";
+        return $" ${_amount} ({_description})";
     }
 }

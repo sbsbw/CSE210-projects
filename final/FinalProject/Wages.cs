@@ -35,6 +35,6 @@ public class Wages : Income
     }
     public override string ShowInfo()
     {
-        return $"+ ${_amount} ({_description} for {_hours} at ${_rate} per hour.)";
+        return $" ${_amount} ({_description} for {_hours} at ${_rate} per hour.)";
     }
 }

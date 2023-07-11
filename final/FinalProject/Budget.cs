@@ -152,7 +152,7 @@ public class Budget
         int i = 1;
         foreach (Data data in _datas)
         {
-            if (data._dataType == 4)
+            if (data._dataType == 5)
             {
                 Console.WriteLine($" {i}. {data.ShowInfo()}");
             }

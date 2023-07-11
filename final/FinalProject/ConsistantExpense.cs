@@ -14,7 +14,8 @@ public class ConsistantExpense : Expense
         _amount = float.Parse(parts[1]);
         _description = parts[2];
         _dueDate = parts[3];
-        _frequency = int.Parse(parts[4]);
+        _paid = false;
+        _frequency = int.Parse(parts[5]);
     }
     public override void SetAttributes()
     {
@@ -22,7 +23,7 @@ public class ConsistantExpense : Expense
         _dataType = 4;
         Console.Write("Please describe the reason for the expense: ");
         _description = Console.ReadLine();
-        Console.Write("How much money did you pay? ");
+        Console.Write("How much money will you pay? ");
         _amount = float.Parse(Console.ReadLine()) * -1;
         _dueDate = DateTime.Today.ToString();
         _paid = false;
@@ -35,7 +36,7 @@ public class ConsistantExpense : Expense
     }
     public override string ShowInfo()
     {
-        return $"- ${_amount} ({_description} === Due on: {_dueDate} === Paid this period: {_paid} === Will be due again {365/_frequency} days after due date.)";
+        return $" ${_amount} ({_description} === Due on: {_dueDate} === Paid this period: {_paid} === Will be due again {365/_frequency} days after due date.)";
     }
     public override float GetAmount()
     {

@@ -6,7 +6,7 @@ public class Expense : Data
     protected bool _paid;
     public Expense()
     {
-        
+
     }
     public Expense(string savedString)
     {
@@ -30,7 +30,7 @@ public class Expense : Data
         _dataType = 3;
         Console.Write("Please describe the reason for the expense: ");
         _description = Console.ReadLine();
-        Console.Write("How much money did you pay? ");
+        Console.Write("How much money will you pay? ");
         _amount = float.Parse(Console.ReadLine()) * -1;
         _dueDate = DateTime.Today.ToString();
         _paid = false;
@@ -41,7 +41,7 @@ public class Expense : Data
     }
     public override string ShowInfo()
     {
-        return $"- ${_amount} ({_description} === Due on: {_dueDate} === Paid: {_paid})";
+        return $" ${_amount} ({_description} === Due on: {_dueDate} === Paid: {_paid})";
     }
     public override float GetAmount()
     {
